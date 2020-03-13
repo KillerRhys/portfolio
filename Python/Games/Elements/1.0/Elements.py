@@ -1,4 +1,7 @@
-# Elements by Atomsk 2015.06.03 R1; 2015.06.03-15:30 R2; 2015.06.06-0:25 R3;
+"""Elements 
+   Coded by TechGYQ 
+   2015.06.03 R1; 2015.06.03-15:30 R2; 2015.06.06-0:25 R3; 2020.01.23 R4;
+"""
 
 # ::Call Functions::
 from random import choice
