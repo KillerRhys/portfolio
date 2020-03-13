@@ -5,8 +5,7 @@
 """
 
 # Calls
-import time, sys, os
-from random import *
+import time, random, sys, os
 
 # Global Variables
 mentor0 = "Old Man: "
@@ -80,12 +79,43 @@ def load():
 
 def battle():
     n = int(p1.progress)
-    enemy = Monster(mobs[n], int(p1.map), int(p1.atk), int(p1.arm), 50, 50, 1)
+    x = int(p1.level)
+    e1 = Monster(mobs[n], int(p1.maxhp * x), int(p1.atk + x), int(p1.arm + x), 50 * x, 100 * x, 1)
+    patk = p1.atk - e1.arm
+    eatk = e1.atk - p1.arm
     fire = 0
     earth = 1
     wind = 2
     water = 3
     potion = 4
+    fightActive = True
+    while fightActive == True & p1.hp > 0 & e1.hp > 0:
+        pa = input("What action will you take? (f)ire, (e)arth, (w)ind, w(a)ter, or use a (p)otion?\n")
+        ea = random.randint(0, 4)
+        if pa == fire & ea == 0:
+            print("You and " + e1.name + " both hurl fireballs!\n The flames explode scattering small fires everywhere!")
+            p1.hp = p1.hp - eatk / 2
+            e1.hp = e1.hp - patk / 2
+
+        elif pa == fire & ea == 1:
+            print(e1.name + "raises a wall of earth that your flames raze!")
+            p1.hp = p1.hp
+            e1.hp = e1.hp - patk * 2
+
+        elif pa == fire & ea == 2:
+            print("Your flames fly forth meeting " + e1.name + "'s whirlwind.\n The spells combine and lighting arcs everywhere!\n")
+            p1.hp = p1.hp - eatk
+            e1.hp = e1.hp - patk
+
+        elif pa == fire & ea == 3:
+            print(e1.name + "summons forth a fierce tsunami! Your flames are doused and you're lost in the flood...")
+            p1.hp = p1.hp - eatk * 2
+            e1.hp = e1.hp
+
+        elif pa == fire & ea == 4:
+            print(e1.name + "quickly swallows a potion as your flames engulf them!")
+            p1.hp = p1.hp
+            e1.hp = e1.hp + 50 - patk
 
 
 def stage1():
