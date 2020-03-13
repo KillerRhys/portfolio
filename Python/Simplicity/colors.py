@@ -2,7 +2,7 @@
 Color-Dex
 Build for Python 3
 Designed for PyGame
-Version 1.0
+Version 1.1
 
 """
 

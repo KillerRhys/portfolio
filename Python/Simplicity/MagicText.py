@@ -1,3 +1,9 @@
+"""	Magic Text Editor
+	Coded by TechGYQ
+	2020.03.13 OC;
+	DESC: Tool used to build words.json game dictionary with over 125K words in 25 mins. 
+"""
+
 import sys, time, os
 
 def cuts():
